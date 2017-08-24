@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Websocket Test</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	const ws = new WebSocket('ws://0.0.0.0:8282');
+	console.log(ws);
+
+	ws.onopen = function(evt){
+		console.log('Connection Open...');
+		ws.send('hello, websocket');
+	};
+
+	ws.onmessage = function (evt){
+		console.log( "Received Message: " + evt.data);
+		//ws.close();
+	};
+
+	ws.onclose = function(evt){
+		console.log("Connection Closed.");
+	}
+</script>
+</body>
+</html>
