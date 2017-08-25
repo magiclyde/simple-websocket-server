@@ -135,11 +135,14 @@ def webSocketLink(sock, addr):
 
 	while True:
 		fin, opcode, data = recvDataFrame(sock)
-		print 'recv data:\t', data
-
-		send_data = 'Server recv:' + data
-		# response data frame
-		sendDataFrame(sock, send_data)
+		if not data:
+			sock.close()
+			break
+		else:
+			print 'recv data:\t', data
+			send_data = 'Server recv:' + data
+			# response data frame
+			sendDataFrame(sock, send_data)
 
 def main():
 	HOST, PORT = '', 8282
