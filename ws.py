@@ -135,7 +135,7 @@ def webSocketLink(sock, addr):
 
 	while True:
 		fin, opcode, data = recvDataFrame(sock)
-		if not data:
+		if opcode == 0x8:
 			sock.close()
 			break
 		else:
