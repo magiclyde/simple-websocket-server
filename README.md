@@ -35,21 +35,21 @@ Serve start on tcp socket, then response encoded header 'Sec-WebSocket-Accept' w
      +---------------------------------------------------------------+
 	
 	 ------------------------- explain -------------------------------
-	#				#			#
+	#			#		#
 	FIN      		1bit 		tells whether this is the last message in a series. 
-								if it's 0, then the server will keep listening for 
-								more parts of the message; 
-								otherwise, the server should consider the message delivered.
+						if it's 0, then the server will keep listening for 
+						more parts of the message; 
+						otherwise, the server should consider the message delivered.
 
 	RSV(1-3)  		1bit each 	have no meaning, default is 0.
 	Opcode   		4bit 		defines how to interpret the payload data.
-								{ 0x0:CONTINUOUS, 0x1:TEXT, 0x2:BINARY, 0x[3-7]:no meaning, 
-								  0x8:CLOSING, 0x9:PING, 0xA:PONG }
+						{ 0x0:CONTINUOUS, 0x1:TEXT, 0x2:BINARY, 0x[3-7]:no meaning, 
+						 0x8:CLOSING, 0x9:PING, 0xA:PONG }
 								
 	Mask     		1bit 		tells whether the message is encoded，should expect this to be 1.
-	Payload len  	7bit 		decide when to stop reading.
+	Payload len  		7bit 		decide when to stop reading.
 	Masking-key		1 or 4 bit 	#
-	Payload data	x bytes 	#
+	Payload data		x bytes 	#
 
 	------------------------- send and recv-------------------------------
 	to do...
