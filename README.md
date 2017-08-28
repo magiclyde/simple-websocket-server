@@ -9,7 +9,7 @@ Written by [magiclyde](https://magiclyde.me).
 
 
 ## Handshake
-Serve start on tcp socket, then response encoded header '**Sec-WebSocket-Accept**' with incoming client's header '**Sec-WebSocket-Key**' and magic string '258EAFA5-E914-47DA-95CA-C5AB0DC85B11' to complete handshake.
+Serve start on tcp socket, then response header '**Sec-WebSocket-Accept**' encoded with incoming client's header '**Sec-WebSocket-Key**' and magic string '258EAFA5-E914-47DA-95CA-C5AB0DC85B11' to complete handshake.
 
 
 ## Exchanging Data
